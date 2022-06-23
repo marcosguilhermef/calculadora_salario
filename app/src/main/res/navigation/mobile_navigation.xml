@@ -11,9 +11,11 @@
         android:label="Página inicial"
         tools:layout="@layout/fragment_home" >
         <action
+            app:launchSingleTop="true"
             android:id="@+id/action_home_to_navigationToCalculator"
             app:destination="@id/navigationToCalculator" />
         <action
+            app:launchSingleTop="true"
             android:id="@+id/action_home_to_navigationToAsks"
             app:destination="@id/navigationToAsks" />
     </fragment>
@@ -24,6 +26,7 @@
         android:label="Calculadora salário líquido"
         tools:layout="@layout/fragment_calculadora" >
         <action
+            app:launchSingleTop="true"
             android:id="@+id/action_navigationToCalculator_to_navigationToCalcuted"
             app:destination="@id/navigationToCalcuted" />
     </fragment>

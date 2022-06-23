@@ -1,16 +1,19 @@
 package com.origin.salario_liquido.ui.calculadora;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
+import android.os.Handler;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.google.android.material.textfield.TextInputEditText;
+import com.origin.salario_liquido.ADS;
 import com.origin.salario_liquido.R;
 import com.origin.salario_liquido.ads.Analytics;
 import com.origin.salario_liquido.databinding.FragmentCalculadoraBinding;
@@ -68,25 +71,36 @@ public class Calculadora extends Fragment {
         Analytics.ScreenNameSend("Calduladora",this.getClass().getName());
 
         databiding.calcular.setOnClickListener( v-> {
-            Bundle args = new Bundle();
-            if(databiding.salarioBruto.getText().toString().isEmpty()){
-                args.putString("bruto","0");
-            }else{
-                args.putString("bruto",databiding.salarioBruto.getText().toString());
-            }
-            if(databiding.desconto.getText().toString().isEmpty()){
-                args.putString("desconto", "0");
-            }else{
-                args.putString("desconto", databiding.desconto.getText().toString());
-            }
-            if(databiding.dependentes.getText().toString().isEmpty()){
-                args.putString("dependentes", "0");
-            }else{
-                args.putString("dependentes", databiding.dependentes.getText().toString());
-            }
+            Bundle args = createBundle();
             Navigation.findNavController(getActivity(),R.id.nav_host_fragment).navigate(R.id.navigationToCalcuted,args);
-
         });
         return databiding.getRoot();
+    }
+
+    private Bundle createBundle(){
+        Bundle args = new Bundle();
+        if(databiding.salarioBruto.getText().toString().isEmpty()){
+            args.putString("bruto","0");
+        }else{
+            args.putString("bruto",databiding.salarioBruto.getText().toString());
+        }
+        if(databiding.desconto.getText().toString().isEmpty()){
+            args.putString("desconto", "0");
+        }else{
+            args.putString("desconto", databiding.desconto.getText().toString());
+        }
+        if(databiding.dependentes.getText().toString().isEmpty()){
+            args.putString("dependentes", "0");
+        }else{
+            args.putString("dependentes", databiding.dependentes.getText().toString());
+        }
+        return args;
+    }
+
+
+    private void initAds(Bundle args){
+        Intent intent = new Intent(getContext(), ADS.class);
+        intent.putExtras(args);
+        startActivity(intent);
     }
 }

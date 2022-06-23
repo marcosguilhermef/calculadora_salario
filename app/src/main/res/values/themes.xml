@@ -14,13 +14,11 @@
         <!-- Customize your theme here. -->
     </style>
 
-    <style name="Theme.AppCompat.SplashScreen" parent="Theme.SplashScreen">
-        <item name="windowSplashScreenBackground">@color/brazil</item>
+    <style name="Theme.Salario_liquido.SplashScreen" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/background</item>
         <item name="windowSplashScreenAnimationDuration">3000</item>
-        <!--
         <item name="windowSplashScreenAnimatedIcon">@mipmap/ic_launcher_foreground</item>
-        <item name="postSplashScreenTheme">@style/Theme.Cpfstandard</item>
-        -->
+        <item name="postSplashScreenTheme">@style/Theme.Salario_liquido</item>
     </style>
 
 </resources>
