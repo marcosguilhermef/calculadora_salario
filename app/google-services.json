@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1039822808687",
+    "project_id": "calculadora-desconto-salario",
+    "storage_bucket": "calculadora-desconto-salario.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1039822808687:android:75e64d97f95801761e0f9a",
+        "android_client_info": {
+          "package_name": "com.origin.salario_liquido"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1039822808687-0fuvqipv8mevdbpigsbr6cho5fum1nbd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBp5OT4_YVAgs5zFaWZNYO0RIuQ_4vaESc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1039822808687-0fuvqipv8mevdbpigsbr6cho5fum1nbd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

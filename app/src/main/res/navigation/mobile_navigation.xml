@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/home">
+
+    <fragment
+        android:id="@+id/home"
+        android:name="com.origin.salario_liquido.ui.Home.Home"
+        android:label="Página inicial"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_home_to_navigationToCalculator"
+            app:destination="@id/navigationToCalculator" />
+        <action
+            android:id="@+id/action_home_to_navigationToAsks"
+            app:destination="@id/navigationToAsks" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigationToCalculator"
+        android:name="com.origin.salario_liquido.ui.calculadora.Calculadora"
+        android:label="Calculadora salário líquido"
+        tools:layout="@layout/fragment_calculadora" >
+        <action
+            android:id="@+id/action_navigationToCalculator_to_navigationToCalcuted"
+            app:destination="@id/navigationToCalcuted" />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/navigationToCalcuted"
+        android:name="com.origin.salario_liquido.ui.salarioCalculado.salarioCalculado"
+        android:label="Salário"
+        tools:layout="@layout/fragment_salario_clculado" >
+        <argument
+            android:name="bruto"
+            android:defaultValue="0"
+            app:argType="string" />
+        <argument
+            android:name="desconto"
+            android:defaultValue="0"
+            app:argType="string" />
+        <argument
+            android:name="dependentes"
+            android:defaultValue="0"
+            app:argType="string"
+            />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigationToAsks"
+        android:name="com.origin.salario_liquido.ui.duvidas.DuvidasFrequentes"
+        android:label="Dúvidas frequentes"
+        tools:layout="@layout/fragment_duvidas_frequentes"
+        >
+
+    </fragment>
+</navigation>
