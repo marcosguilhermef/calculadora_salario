@@ -1,8 +1,8 @@
 <resources>
-    <string name="app_name">salario_liquido</string>
+    <string name="app_name">Calculadora Salário Líquido</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="calcular_salario">Calcular salário líquido</string>
+    <string name="calcular_salario">Calculadora salário líquido</string>
     <string name="intrucoes">Calcule o seu salário líquido e entenda as tributações que são cobradas no seu salário.</string>
     <string name="salario">Salário bruto</string>
     <string name="outros">Outros descontos</string>
