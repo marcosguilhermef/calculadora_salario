@@ -12,12 +12,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Salario_liquido.SplashScreen"
-        >
-        <!--<activity
-            android:name=".ADS"
-            android:exported="false">
-        </activity>-->
-
+        android:networkSecurityConfig="@xml/network_security_config">
+    >
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
             android:value="@string/appID" />

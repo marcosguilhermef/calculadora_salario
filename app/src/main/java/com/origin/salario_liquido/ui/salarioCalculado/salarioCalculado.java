@@ -10,12 +10,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.appodeal.ads.Appodeal;
+import com.appodeal.ads.NativeAd;
+import com.appodeal.ads.NativeCallbacks;
 import com.origin.salario_liquido.ADS;
 import com.origin.salario_liquido.R;
 import com.origin.salario_liquido.ads.Analytics;
 import com.origin.salario_liquido.databinding.FragmentSalarioClculadoBinding;
 
 import java.text.DecimalFormat;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -29,6 +33,7 @@ public class salarioCalculado extends Fragment {
     private String bruto;
     private String desconto;
     private String dependentes;
+    private List<NativeAd> nativeAds;
 
     public salarioCalculado() {
         // Required empty public constructor
@@ -90,7 +95,48 @@ public class salarioCalculado extends Fragment {
         databiding.totalLiquido.setText("R$ " + totalLiquido());
         databiding.outrosDescontos.setText("R$ " + getDesconto());
 
+        startAppOdeal();
+
+        Appodeal.setNativeCallbacks(new NativeCallbacks() {
+            @Override
+            public void onNativeLoaded() {
+                Log.i("APPODEAL", "onNativeLoaded");
+                nativeAds = Appodeal.getNativeAds(1);
+                showAdsAppOdeal();
+            }
+            @Override
+            public void onNativeFailedToLoad() {
+                Log.i("APPODEAL", "onNativeFailedToLoad");
+            }
+            @Override
+            public void onNativeShown(NativeAd nativeAd) {
+                Log.i("APPODEAL", "onNativeShown");
+            }
+            @Override
+            public void onNativeShowFailed(NativeAd nativeAd) {
+                Log.i("APPODEAL", "onNativeShowFailed"+nativeAd.getTitle());
+            }
+            @Override
+            public void onNativeClicked(NativeAd nativeAd) {
+                Log.i("APPODEAL", "onNativeClicked"+nativeAd.getTitle());
+            }
+            @Override
+            public void onNativeExpired() {
+                Log.i("APPODEAL", "onNativeExpired");
+            }
+        });
+
         return databiding.getRoot();
+    }
+
+    private void startAppOdeal(){
+        if(Appodeal.isInitialized(Appodeal.NATIVE)){
+            Appodeal.initialize(getActivity(), getString( R.string.app_key ), Appodeal.NATIVE);
+        }
+        nativeAds = Appodeal.getNativeAds(1);
+    }
+    private void showAdsAppOdeal(){
+        databiding.nativeAdViewAppWall.setNativeAd(nativeAds.get(0));
     }
 
     private String descontoINSS(){

@@ -21,6 +21,7 @@
     <string name="appID">ca-app-pub-8817634033676287~4757001416</string>
     <string name="pubIntersticial">ca-app-pub-8817634033676287/3640743757</string>
     <string name="pubNative">ca-app-pub-8817634033676287/5471317282</string>
+    <string name="pubNativeTest">ca-app-pub-3940256099942544/2247696110</string>
     <string name="title_activity_ads">Leanback ADS</string>
     <string name="browse_title">Videos by Your Company</string>
     <string name="related_movies">Related Videos</string>
@@ -42,4 +43,6 @@
     <string name="paragrafo_1">Alguns dos descontos mais comuns que ocorrem no seu salário são:</string>
     <string name="paragrafo_3">O IRPF (Imposto de renda) é um imposto federal que incide sobre o seu salário. Esse imposto é obrigatório e pode ser isento em alguns casos. Mas para isso, você deve declarar os seus impostos para ter a restituição de parte do imposto já pago.</string>
     <string name="paragrafo_5">O INSS (Instituto Nacional do Seguro Social) é um orgão reponsavel em pagar benefícios e aposentadorias aos trabalhadores. É descontado um valor mensal do salário para que o programa seja mantido. Quanto maior a sua contribuição ao INSS, maior será a sua aposentadoria.</string>
+    <string name="facebook_app_id">865231098213498</string>
+    <string name="app_key">76b7d6442b5c2e845cfd886c35d2c1bff9e5e69490f89d07</string>
 </resources>

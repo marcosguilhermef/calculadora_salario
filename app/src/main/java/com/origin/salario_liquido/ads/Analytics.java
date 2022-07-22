@@ -25,7 +25,7 @@ public class Analytics {
     public static void avaliar(String title){
         Bundle bundle = new Bundle();
         bundle.putString("title",title);
-        mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SHARE, bundle);
+        mFirebaseAnalytics.logEvent("REVIEW", bundle);
     }
 
     public static void success(String title){

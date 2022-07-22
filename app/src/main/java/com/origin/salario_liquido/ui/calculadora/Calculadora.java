@@ -6,17 +6,21 @@ import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
-import android.os.Handler;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.google.android.material.textfield.TextInputEditText;
+import com.appodeal.ads.Appodeal;
+import com.appodeal.ads.NativeAd;
+import com.appodeal.ads.NativeCallbacks;
 import com.origin.salario_liquido.ADS;
 import com.origin.salario_liquido.R;
 import com.origin.salario_liquido.ads.Analytics;
 import com.origin.salario_liquido.databinding.FragmentCalculadoraBinding;
+
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -34,6 +38,8 @@ public class Calculadora extends Fragment {
     private String mParam1;
     private String mParam2;
     private FragmentCalculadoraBinding databiding;
+    private List<NativeAd> nativeAds;
+
     public Calculadora() {
         // Required empty public constructor
     }
@@ -74,7 +80,49 @@ public class Calculadora extends Fragment {
             Bundle args = createBundle();
             Navigation.findNavController(getActivity(),R.id.nav_host_fragment).navigate(R.id.navigationToCalcuted,args);
         });
+
+        startAppOdeal();
+
+        Appodeal.setNativeCallbacks(new NativeCallbacks() {
+            @Override
+            public void onNativeLoaded() {
+                Log.i("APPODEAL", "onNativeLoaded");
+                nativeAds = Appodeal.getNativeAds(1);
+                showAdsAppOdeal();
+            }
+            @Override
+            public void onNativeFailedToLoad() {
+                Log.i("APPODEAL", "onNativeFailedToLoad");
+            }
+            @Override
+            public void onNativeShown(NativeAd nativeAd) {
+                Log.i("APPODEAL", "onNativeShown");
+            }
+            @Override
+            public void onNativeShowFailed(NativeAd nativeAd) {
+                Log.i("APPODEAL", "onNativeShowFailed"+nativeAd.getTitle());
+            }
+            @Override
+            public void onNativeClicked(NativeAd nativeAd) {
+                Log.i("APPODEAL", "onNativeClicked"+nativeAd.getTitle());
+            }
+            @Override
+            public void onNativeExpired() {
+                Log.i("APPODEAL", "onNativeExpired");
+            }
+        });
+
         return databiding.getRoot();
+    }
+
+    private void startAppOdeal(){
+        if(Appodeal.isInitialized(Appodeal.NATIVE)){
+            Appodeal.initialize(getActivity(), getString( R.string.app_key ), Appodeal.NATIVE);
+        }
+    }
+
+    private void showAdsAppOdeal(){
+        databiding.nativeAdViewAppWall.setNativeAd(nativeAds.get(0));
     }
 
     private Bundle createBundle(){

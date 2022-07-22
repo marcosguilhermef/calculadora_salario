@@ -82,7 +82,7 @@ public class Home extends Fragment {
     private void openAvaliation(){
         Intent viewIntent = new Intent("android.intent.action.VIEW", Uri.parse("https://play.google.com/store/apps/details?id=com.origin.salario_liquido"));
         startActivity(viewIntent);
-        Analytics.share("Avaliar");
+        Analytics.avaliar("Avaliar");
     }
 
     private void compartilhar(){
